@@ -64,7 +64,7 @@ export default function HeaderBar({ onResult, onBusyChange }: HeaderBarProps) {
   return (
     <form
       onSubmit={onSubmit}
-      className="card glow grid md:grid-cols-5 gap-3 items-end"
+      className="grid md:grid-cols-5 gap-4 items-end"
     >
       <div className="md:col-span-2">
         <Label className="label">美股代號（Ticker）</Label>

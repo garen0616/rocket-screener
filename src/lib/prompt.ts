@@ -95,9 +95,10 @@ Output (JSON + zh-TW Markdown):
 }
 `;
 
-export const userPrompt = (p:{ticker:string;asOf:string;question?:string}) => `
+export const userPrompt = (p:{ticker:string;asOf:string;question?:string;currentPrice?:number}) => `
 目標：依「大型股/小型股雙標準」對 ${p.ticker} 在 ${p.asOf} 當時點進行回溯評分，並給出倉位與執行建議。
 請嚴格以 ${p.asOf} 之前可得的資訊作答（不得使用 ${p.asOf} 之後的資訊）。
+請將「現價」或「今日價格」固定視為 ${p.currentPrice ? `${p.currentPrice.toFixed(2)} 美元` : "(尚未取得)"}，並在所有段落中引用此數值，不得另行假設其他現價。
 請同時輸出「Earnings Analysis Module」：近四次財報的日期/要點/指引/對股價影響與繁中總結（earnings_md）。
 倉位建議需明確寫出「進場價帶、加碼條件、減碼／停利條件」（填入 positioning.entry_band / add_condition / trim_condition）。
 附加提問：${p.question ?? "無"}。

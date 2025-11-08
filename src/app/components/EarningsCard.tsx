@@ -21,10 +21,10 @@ export default function EarningsCard({ items, summaryMd }: { items?: Earn[]; sum
 
   return (
     <>
-      <Card className="bg-black/30 border-white/10">
-        <CardHeader><CardTitle>🧾 財報分析（最近四季）</CardTitle></CardHeader>
-        <CardContent className="space-y-4">
-          <div className="overflow-x-auto">
+      <Card className="panel panel--glass">
+        <CardHeader className="px-0 pt-0"><CardTitle>🧾 財報分析（最近四季）</CardTitle></CardHeader>
+        <CardContent className="space-y-4 px-0 pb-0">
+          <div className="table-wrapper overflow-x-auto">
             <table className="w-full text-sm">
               <thead>
                 <tr className="text-white/70">
@@ -55,7 +55,7 @@ export default function EarningsCard({ items, summaryMd }: { items?: Earn[]; sum
         </CardContent>
       </Card>
       {summaryMd && (
-        <div className="card">
+        <div className="panel panel--glass">
           <h2 className="text-xl font-semibold mb-2">🧠 ChatGPT 財報綜合分析</h2>
           <article className="prose prose-invert max-w-none">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{summaryMd}</ReactMarkdown>

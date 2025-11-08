@@ -25,7 +25,7 @@ export async function POST(req: NextRequest) {
       ...(enforceDefaultTemp ? {} : { temperature: 0.2 }),
       messages: [
         { role: "system", content: systemPrompt(asOf) },
-        { role: "user", content: userPrompt({ ticker, asOf, question }) }
+        { role: "user", content: userPrompt({ ticker, asOf, question, currentPrice: historical?.close }) }
       ],
       response_format: {
         type: "json_schema",

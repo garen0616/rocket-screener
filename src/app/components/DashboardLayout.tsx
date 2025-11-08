@@ -7,19 +7,19 @@ import { Toaster } from "@/components/ui/toast";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen text-white">
-      <div className="fixed inset-0 -z-10 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950" />
-      <div className="fixed inset-x-0 top-0 -z-10 h-64 bg-gradient-to-b from-cyan-500/20 via-transparent to-transparent blur-3xl" />
-
-      <header className="sticky top-0 z-30 backdrop-blur-lg border-b border-white/10 bg-slate-950/70">
-        <div className="container flex flex-col gap-4 py-4">
-          <div>
-            <h1 className="text-3xl font-semibold tracking-tight">
-              Rocket Screener Pro
-            </h1>
-            <p className="text-sm text-white/70">
-              AI 財經情報平台 · 智能目標價 · 實時風控指標
+      <header className="hero-shell">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="hero-panel"
+          >
+            <h1>Rocket Screener Pro</h1>
+            <p className="text-white/80 text-base max-w-3xl">
+              雙重標準檢視大型與小型股，將財報記憶、目標區間、風險控管與倉位指引一次呈現，協助投資決策更快速、更具結構。
             </p>
-          </div>
+          </motion.div>
         </div>
       </header>
 
@@ -27,7 +27,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         initial={{ opacity: 0, y: 18 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35 }}
-        className={cn("container grid grid-cols-1 lg:grid-cols-3 gap-6 py-8")}
+        className={cn("container flex flex-col gap-8 pb-10")}
       >
         {children}
       </motion.main>
